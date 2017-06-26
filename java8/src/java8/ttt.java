@@ -2,36 +2,37 @@ package java8;
 
 import java.util.Random;
 import java.util.Scanner;
+
+import java8_1.exercise;
 import java8_1.tester;
 
-public class ttt {
+public class ttt{
 
 	public static void main(String args[])
 	{/*
 		Random rand = new Random();
 		int r = rand.nextInt(10)+1;
-		System.out.println("³­¼ö »ý¼º ¿Ï·á\n¸ÂÃçº¸¼¼¿ä");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½\nï¿½ï¿½ï¿½çº¸ï¿½ï¿½ï¿½ï¿½");
 		
 		Scanner scan = new Scanner(System.in);
 		int input, i;
 		for(i=0;i<3;i++)
 		{
-			System.out.print("¼ýÀÚ ÀÔ·Â:");
+			System.out.print("ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½:");
 			input=scan.nextInt();
 			if(input==r)
 			{
-				System.out.println("¸ÂÃß¼Ì½À´Ï´Ù!");
+				System.out.println("ï¿½ï¿½ï¿½ß¼Ì½ï¿½ï¿½Ï´ï¿½!");
 				break;
 			}
 			else
 			{
-				System.out.println("‹¯!");
+				System.out.println("ï¿½ï¿½!");
 			}
 		}
 		if(i==3)
 		{
-			System.out.println("´ÙÀ½ ±âÈ¸¿¡..");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¸ï¿½ï¿½..");
 		}*/
-		
 	}
 }

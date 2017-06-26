@@ -1,46 +1,50 @@
 package java8;
 
+import java.awt.CardLayout;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
-//Ä«µå°ÔÀÓ(not yet)
+//Ä«ï¿½ï¿½ï¿½ï¿½ï¿½(not yet)
 public class Jungol1311 {
-	enum color {
-		R(1), B(2), Y(3), G(4);
-		private int value;
-
-		private color(int value) {
-			this.value = value;
-		}
-	};
-
+	static char[] cardColor;
+	static int[] cardNumber;
+	static int result = 0 ;
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		int score = 0;
-		int highestNumber, lowestNumber;
-		int sameColorCount, sameNumberCount = 0;
-		int numbers[] = new int[10];
-		int colors[] = new int[5];
-		Arrays.fill(numbers, 0);
-		Arrays.fill(colors, 0);
-		for (int i = 0; i < 5; i++) {
-			colors[color.valueOf(scanner.next()).value]++;
-			numbers[scanner.nextInt()]++;
+		Scanner input = new Scanner(System.in);
+		cardColor = new char[5];
+		cardNumber = new int[5];
+		for(int i = 0 ; i < 5; i++){
+			cardColor[i] = input.next().charAt(0);
+			cardNumber[i] = input.nextInt();
 		}
-		for(int i = 1; i<colors.length; i++)
-		{
-			if(colors[i]==5){
-				sameColorCount = colors[i];
-				break;
-			}
-		}
-		for(int i = 1; i<numbers.length; i++)
-		{
-			if(numbers[i]!=0){
-				sameNumberCount += numbers[i];
-			}
+		Arrays.sort(cardNumber);
+		
+		if(isAllSameColor() && isConsecutive()){
+			result += (900 + cardNumber[cardNumber.length-1]);
 		}
 		
 		
 	}
+	static boolean isAllSameColor()
+	{
+		for(int i = 0 ; i < cardColor.length - 1; i++){
+			if(cardColor[i] != cardColor[i+1]){
+				return false;
+			}
+		}
+		return true;
+	}
+	static boolean isConsecutive(){
+		for(int i = 0 ; i < cardNumber.length - 1; i++){
+			if(cardNumber[i + 1] - cardNumber[i] != 1){
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	
 }
