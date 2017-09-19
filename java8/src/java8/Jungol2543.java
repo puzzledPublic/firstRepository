@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 //타일 채우기, (분할 정복)
 // 바닥을 중앙 기준 4개로 나누고 타일 깔기가 불가능한 위치를 이용해 맞는 타일 중앙에 배치하는 아이디어가 필요.
+//이 코드는 느리므로 다른 코드 참조가 필요
 public class Jungol2543 {
 	
 	static int floor[][];
