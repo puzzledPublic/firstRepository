@@ -11,7 +11,7 @@ public class Jungol1011 {
 		people = input.nextInt();
 		num = input.nextInt();
 		person = input.nextInt();
-		//에라스토테스트 체 
+		//에라토스테네스 체 
 		boolean[] erasto = new boolean[num+1];
 		erasto[1] = true; 
 		for(int i = 2; i * i <= num; i++){
