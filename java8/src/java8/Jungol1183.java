@@ -18,6 +18,7 @@ public class Jungol1183 {
 			coinCounts[i] = input.nextInt();
 		}
 		
+		//계산
 		for(int i = 5; i >= 1; i--){
 			if(price == 0){	//price를 맞추면 stop
 				break;
@@ -38,6 +39,7 @@ public class Jungol1183 {
 		
 		result[0] = price / coins[0];	//price에 맞게 끔 입력이 들어온다는 가정이 있으므로 안전
 		
+		//출력
 		int count = 0;
 		for(int i : result){
 			count += i;
