@@ -1,7 +1,5 @@
 package java8;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.Scanner;
 
 //제곱 수 출력
@@ -26,11 +24,11 @@ public class Jungol1092 {
 			return x;
 		}
 		long ret = 0;
-		if(y % 2 == 0){
+		if(y % 2 == 0){	//짝수인 경우
 			ret =  solve(x, y / 2);
 			ret *= ret;
 		}
-		else{
+		else{	//홀수인 경우
 			ret =  solve(x, y / 2 + 1) * solve(x, y / 2);
 		}
 		return ret % 20091024;
