@@ -3,6 +3,8 @@ package java8;
 public class AfcDistanceOfNodes {
 	public static void main(String[] args) {
 		System.out.println(solve(200000,342));
+		
+		System.out.println(solve2(200000, 342));
 	}
 	
 	static int solve(int a, int b){
@@ -18,5 +20,19 @@ public class AfcDistanceOfNodes {
 			ret = solve(a, b / 2) + 1;
 		}
 		return ret;
+	}
+	
+	static int solve2(int a, int b) {
+		int distance = 0;
+		while(a != b) {
+			if(a > b) {
+				a /= 2;
+			}
+			else {
+				b /= 2;
+			}
+			distance++;
+		}
+		return distance;
 	}
 }

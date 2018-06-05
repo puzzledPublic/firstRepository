@@ -6,7 +6,7 @@ package java8;
 public class AfcTileFill_S {
 	static int m = 100;
 	public static void main(String[] args) {
-		int n = 8000;
+		int n = 50000;
 		//System.out.println(solve(n));
 		//System.out.println(solve2(n));
 		System.out.println(solve3(n));
