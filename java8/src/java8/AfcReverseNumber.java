@@ -44,7 +44,7 @@ public class AfcReverseNumber {
 		return (n % 10) * T + 10 * solve3((n % T) / 10) + n / T;
 	}
 	
-	//하향식 접근 방법(bottom-up) 
+	//상향식 접근 방법(bottom-up) 
 	static int solve4(int n) {
 		if(n > 50001) {
 			return -1;
@@ -62,7 +62,7 @@ public class AfcReverseNumber {
 		return dt[n];
 	}
 	
-	//상향식 접근 방법(top-down)
+	//하향식 접근 방법(top-down)
 	static int solve5(int n) {
 		if(n < 10) {
 			return n;

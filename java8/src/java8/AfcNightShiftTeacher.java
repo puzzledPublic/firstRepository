@@ -29,7 +29,9 @@ public class AfcNightShiftTeacher {
 		
 		//nightShift();
 		
-		nightShift2();
+		//nightShift2();
+		nightShift3();
+		
 	}
 	//전체탐색법
 	static void back(int next, int cnt) {
@@ -93,6 +95,30 @@ public class AfcNightShiftTeacher {
 				System.out.println(-1);
 			}
 		}
+	}
+	
+	static void nightShift3() {
+		if(teacherPosition == someonePosition) {
+			System.out.println(0);
+		} else {
+			Arrays.fill(cache, 987654321);
+			cache[1] = 0;
+			
+			for(int i = 0; i < 3; i++) {
+				cache[1 + power[i]] = 1; 
+			}
+			
+			for(int i = 2; i <= someonePosition - teacherPosition + 1; i++) {
+				int temp = 987654321;
+				for(int j = 0; j < 3; j++) {
+					if(i - power[j] >= 1) {
+						temp = Math.min(temp, cache[i - power[j]]);
+					}
+				}
+				cache[i] = temp + 1;
+			}
+		}
 		
+		System.out.println(cache[someonePosition - teacherPosition + 1]);
 	}
 }

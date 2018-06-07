@@ -17,6 +17,13 @@ public class Afc01KnapsackPloblem {
 		System.out.println(knapsack(0, weightOfKnapsack));
 		
 		System.out.println(knapsack2());
+		
+		for(int i = 0; i < 10; i++) {
+			for(int j = 0; j < 10; j++) {
+				System.out.print(cache2[i][j] + " ");
+			}
+			System.out.println();
+		}
 	}
 	
 	static int knapsack(int k, int r) {

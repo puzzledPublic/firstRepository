@@ -6,7 +6,7 @@ public class AfcPartitioned {
 	static int[] A = new int[30];
 	static int COUNT;
 	public static void main(String[] args) {
-		solve(3, 3);
+		solve(5, 5);
 	}
 	
 	static void solve(int n, int k){
