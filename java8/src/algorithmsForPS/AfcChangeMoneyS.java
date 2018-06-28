@@ -2,7 +2,7 @@ package algorithmsForPS;
 
 import java.util.Scanner;
 //거스름 돈(S)
-public class AfcChangeMoney {
+public class AfcChangeMoneyS {
 	static int M, N;
 	static int coin[];
 	static int answer = 987654321; 
