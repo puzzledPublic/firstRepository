@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-
+//ACM craft
 public class BJ1005 {
 	static int T, N, K, W;	//테스트 케이스, 건물 갯수, 건물 규칙 갯수, 목적 정점
 	static int[] cost, indegree;	//건물 비용, 각 정점의 들어오는 간선 갯수
