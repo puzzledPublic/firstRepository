@@ -2,6 +2,8 @@ package baekjoon.bj11000;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -38,16 +40,16 @@ public class BJ11004 {
 		}
 	}
 	static int partition(int[] arr, int left, int right) {
-		int pivot = arr[left];	//맨왼쪽을 피봇으로 설정
+		int pivot = arr[left];
 		int i = left + 1, j = right;
-		while(i <= j) {
-			while(arr[i] <= pivot && i <= right) {
+		while(i < j) {
+			while(i <= right && arr[i] <= pivot) {
 				i++;
 			}
-			while(arr[j] >= pivot && j >= (left + 1)) {
+			while(j >= (left + 1) && arr[j] >= pivot) {
 				j--;
 			}
-			if(i <= j) {
+			if(i < j) {
 				int temp = arr[i];
 				arr[i] = arr[j];
 				arr[j] = temp;
