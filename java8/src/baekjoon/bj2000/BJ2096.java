@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.util.function.IntBinaryOperator;
 
-//내려가기
+//내려가기 
 public class BJ2096 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -24,12 +24,13 @@ public class BJ2096 {
 			dp[0][i] = arr[0][i];
 		}
 		
-		solve(arr, dp, (a, b) -> a < b ? b : a);
-		solve(arr, dp, (a, b) -> a < b ? a : b);
+		solve(arr, dp, (a, b) -> a < b ? b : a);	//최대값
+		solve(arr, dp, (a, b) -> a < b ? a : b);	//최소값
 		
 		br.close();
 	}
-	static void solve(int[][] arr, int[][] dp, IntBinaryOperator ibo) {
+	//배열을 적게 만들어 푸는 방법도 있다. 이 경우는 필요한 모든 배열을 선언해서 메모리가 커진다.
+	static void solve(int[][] arr, int[][] dp, IntBinaryOperator ibo) {	//DP
 		int len = arr.length;
 		for(int i = 1; i < len; i++) {
 			for(int j = 0; j < 3; j++) {
