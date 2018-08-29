@@ -14,90 +14,74 @@ public class KakaoRe6 {
 	static int[][] checkMat = {{0,1}, {1,0}, {1,1}};
 	
 	public static void main(String[] args) {
-		System.out.println(solve(m[1],n[1],board[1]));
+		for(int i = 0; i < m.length; i++) {
+			System.out.println(solve2(m[i],n[i],board[i]));
+		}
 	}
 	
-	static int solve(int m, int n, String[] board) {
-		char[][] gameBoard = new char[m][];
-		int[][] copyBoard = new int[m][n];
+	static int solve2(int m, int n, String[] board) {
+		
+		char[][] gameBoard = new char[m][];		//게임판
+		boolean[][] checkBoard = new boolean[m][n];	//지워질 위치를 저장하는 배열
 		
 		for(int i = 0; i < board.length; i++) {
 			gameBoard[i] = board[i].toCharArray();
 		}
 		
-		int count = 0, result = 0;
-		
+		int result = 0;
 		while(true) {
-			//gameboard에서 2x2사각형이 지워지는 경우 copyboard에 체크
+			//게임판을 순회하며 지워야할 위치를 checkBoard에 표시.
 			for(int i = 0; i < m - 1; i++) {
-				for(int j = 0;  j < n - 1; j++) {
-					char currentCharacter = gameBoard[i][j];
-					if(currentCharacter == ' ') {
-						continue;
-					}
-					for(int k = 0; k < checkMat.length; k++) {
-						if(currentCharacter != gameBoard[i + checkMat[k][0]][j + checkMat[k][1]]) {
-							break;
+				for(int j = 0; j < n - 1; j++) {
+					char current = gameBoard[i][j];
+					if(current != '.') {
+						int sameCount = 0;
+						for(int k = 0; k < 3; k++) {
+							if(current != gameBoard[i + checkMat[k][0]][j + checkMat[k][1]]) {
+								break;
+							}
+							sameCount++;
 						}
+						if(sameCount == 3) {
+							checkBoard[i][j] = true;
+							for(int k = 0; k < 3; k++) {
+								checkBoard[i + checkMat[k][0]][j + checkMat[k][1]] = true;
+							}
+						}
+					}
+				}
+			}
+			//checkBoard를 순회하며 게임판의 캐릭터들을 지운다('.' 으로 교체)
+			//이때 지워지는 개수를 계산한다.
+			int count = 0;
+			for(int i = 0; i < m; i++) {
+				for(int j = 0; j < n; j++) {
+					if(checkBoard[i][j]) {
+						gameBoard[i][j] = '.';
+						checkBoard[i][j] = false;
 						count++;
 					}
-					if(count == 3) {
-						copyBoard[i][j] = 1;
-						for(int k = 0; k < checkMat.length; k++) {
-							copyBoard[i + checkMat[k][0]][j + checkMat[k][1]] = 1;
-						}
-					}
-					count = 0;
 				}
 			}
-			//체크 결과 출력 (디버깅용)
-			for(int i = 0; i < m; i++) {
-				for(int j = 0; j < n; j++) {
-					System.out.print(gameBoard[i][j]);
-				}
-				System.out.print(" ");
-				for(int j = 0; j < n; j++) {
-					System.out.print(copyBoard[i][j]);
-				}
-				System.out.println();
-			}
-			System.out.println();
-			//체크 결과에 따라 블록 제거
-			for(int i = m - 1; i >= 0; i--) {
-				for(int j = 0; j < n; j++) {
-					if(copyBoard[i][j] == 1) {
-						if(i != m - 1 && copyBoard[i+1][j] == 1) {
-							continue;
-						}
-						int alpha = 1;
-						gameBoard[i][j] = ' ';
-						while(i - alpha >= 0 && copyBoard[i - alpha][j] == 1) {
-							gameBoard[i - alpha][j] = ' ';
-							alpha++;
-						}
-						for(int k = i - alpha; k >= 0; k--) {
-							gameBoard[k + alpha][j] = gameBoard[k][j];
-							gameBoard[k][j] = ' ';		
-						}
-					}
-				}
-			}
-			//copyboard에서 사라진 블록 수 계산
-			int compareResult = result;
-			for(int i = 0; i < m; i++) {
-				for(int j = 0; j < n; j++) {
-					if(copyBoard[i][j] == 1) {
-						result++;
-						copyBoard[i][j] = 0;
-					}
-				}
-			}
-			//사라진 블록이 없으면 종료
-			if(compareResult == result) {
+			result += count;
+			//더이상 지울게 없다면 종료.
+			if(count == 0) {
 				break;
 			}
+			//게임판을 각 열마다 마지막 행에서 처음 행까지 순회하며 캐릭터들이 떨어짐을 계산하여 게임판 갱신
+			for(int i = 0; i < n; i++) {
+				for(int j = m - 1; j >= 0; j--) {
+					if(gameBoard[j][i] != '.' && (j + 1 < m && gameBoard[j + 1][i] == '.')) {
+						int k = j;
+						while(k + 1 < m && gameBoard[k + 1][i] == '.') {
+							k++;
+						}
+						gameBoard[k][i] = gameBoard[j][i];
+						gameBoard[j][i] = '.';
+					}
+				}
+			}
 		}
-		
 		return result;
 	}
 }

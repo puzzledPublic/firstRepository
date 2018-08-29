@@ -1,5 +1,6 @@
 package java8;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -14,7 +15,7 @@ public class KakaoRe3 {
 		
 		int cacheSizes[] = {3, 3, 2, 5, 2, 0};
 		
-		for(int i = 0; i < strs.length; i++) {
+		for(int i = 2; i < 3; i++) {
 			System.out.println(solve(strs[i], cacheSizes[i]));
 		}
 	}
@@ -29,12 +30,13 @@ public class KakaoRe3 {
 		
 		for(String city : str) {
 			String currentCity = city.toLowerCase();
+			
 			if(cache.contains(currentCity)) {
 				point++;
 				cache.remove(currentCity);
 				cache.add(currentCity);
 			} else {
-				if(cache.size() > cacheSize) {
+				if(cache.size() >= cacheSize) {
 					cache.poll();	
 				}
 				cache.add(currentCity);

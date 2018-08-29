@@ -7,8 +7,43 @@ public class kakao2 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		
-		System.out.println(solution("1D2S#10S"));
+		System.out.println(solution2("1S*2T*3S"));
 	}
+	
+	static int solution2(String dartResult) {
+		int answer = 0, prev = 0, tmp = 0, i = 0;
+		while(i < dartResult.length()) {
+			char current = dartResult.charAt(i);
+			if('0' <= current && current <= '9') {
+				tmp *= 10;
+				tmp += current - '0';
+			}else if(current == 'S' || current == 'D' || current == 'T') {
+				if(current == 'D') {
+					tmp *= tmp;
+				}else if(current == 'T') {
+					tmp *= (tmp * tmp);
+				}
+				answer += tmp;
+				if(i + 1 < dartResult.length() &&(dartResult.charAt(i + 1) != '#' && dartResult.charAt(i + 1) != '*')) {
+					prev = tmp;
+					tmp = 0;
+				}
+			}else {
+				if(current == '#') {
+					prev = -tmp;
+					answer += -2 * tmp;
+				}else if(current == '*') {
+					answer -= (prev + tmp);
+					answer += ((prev + tmp) * 2);
+					prev = 2 * tmp;
+				}
+				tmp = 0;
+			}
+			i++;
+		}
+		return answer;
+	}
+	
 	static int solution(String dartResult){
 		int answer = 0;
 		int count = 0;

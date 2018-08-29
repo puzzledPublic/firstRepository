@@ -1,13 +1,14 @@
 package java8;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 //자카드 유사도
 public class KakaoRe5 {
 	
-	static String[] inputStr1 = {"FRANCE", "handshake", "aa1+aa2", "E=M*C^2", "a*b"};
-	static String[] inputStr2 = {"french", "shake hands", "AAAA12", "e=m*c^2", "c-d"};
+	static String[] inputStr1 = {"FRANCE", "handshake", "aa1+aa2", "E=M*C^2", "a*b","aab ac", "ab"};
+	static String[] inputStr2 = {"french", "shake hands", "AAAA12", "e=m*c^2", "c-d","aab aa", "cd"};
 	
 	public static void main(String[] args) {
 		
@@ -42,8 +43,10 @@ public class KakaoRe5 {
 		}
 		y = list.size() - x + list2.size();
 		
-		if(x != 0) {
+		if(x != 0) {	//교집합이 있는 경우
 			result = (double) x / (double) y;
+		}else if(list.size() > 0 || list2.size() > 0) {	//모두 공집합이 아니고, 교집합이 없는 경우
+			result = 0;
 		}
 		
 		return (int)(65536 * result);
