@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class KakaoRe10 {
-	static String[] ms = {	//네오가 들은 음악 중간 혹은 전체 내용 (i = 입력 순서)
+	/*static String[] ms = {	//네오가 들은 음악 중간 혹은 전체 내용 (i = 입력 순서)
 		"ABCDEFG",
 		"CC#BCC#BCC#BCC#B",
 		"ABC"
@@ -32,14 +32,79 @@ public class KakaoRe10 {
 		{"CDEFGAB", "ABCDEF"},
 		{"CC#B", "CC#BCC#BCC#B"},
 		{"C#DEFGAB", "ABCEDF"}
-	};
-	public static void main(String[] args) {
-		for(int i = 0; i < ms.length; i++) {
-			solve(ms[i], timetables[i], musicNames[i], musics[i]);
+	};*/
+	static class MusicInfo {
+		String musicName;
+		int playedTime;
+		public MusicInfo(String musicName, int playedTime) {
+			this.musicName = musicName;
+			this.playedTime = playedTime;
 		}
 	}
+	public static void main(String[] args) {
+//		for(int i = 0; i < ms.length; i++) {
+//			solve(ms[i], timetables[i], musicNames[i], musics[i]);
+//		}
+		String[] heardMusic = {
+			"ABCDEFG",
+			"CC#BCC#BCC#BCC#B"
+		};
+		String[][] musicinfos = {
+			{"12:00,12:14,HELLO,CDEFGAB", "13:00,13:05,WORLD,ABCDEF"},
+			{"03:00,03:30,FOO,CC#B", "04:00,04:08,BAR,CC#BCC#BCC#B"}
+		};
+		for(int i = 0; i < heardMusic.length; i++) {
+			System.out.println(solve2(heardMusic[i], musicinfos[i]));
+		}
+	}
+	//실제버전
+	static String solve2(String m, String[] musicinfos) {
+		
+		String transformedM = transformSharp(m);
+		
+		String[][] parsedMusiinfos = new String[musicinfos.length][4];
+		for(int i = 0; i < musicinfos.length; i++) {
+			String[] tmp = musicinfos[i].split(",");
+			for(int j = 0; j < 4; j++) {
+				parsedMusiinfos[i][j] = tmp[j];
+			}
+		}
+		
+		String[] transformedMusic = new String[musicinfos.length];
+		for(int i = 0; i < transformedMusic.length; i++) {
+			transformedMusic[i] = transformSharp(parsedMusiinfos[i][3]);
+		}
+		
+		Map<String, MusicInfo> playedMusics = new LinkedHashMap<>();
+		
+		for(int i = 0; i < parsedMusiinfos.length; i++) {
+			int time = betweenTime(parsedMusiinfos[i][0], parsedMusiinfos[i][1]);
+			StringBuilder playedMusic = new StringBuilder();
+			if(time <= transformedMusic[i].length()) {
+				playedMusic.append(transformedMusic[i].substring(0, time));
+			}else {
+				for(int j = 0; j < time / transformedMusic[i].length(); j++) {
+					playedMusic.append(transformedMusic[i]);
+				}
+				playedMusic.append(transformedMusic[i].substring(0, time % transformedMusic[i].length()));
+			}
+			playedMusics.put(playedMusic.toString(), new MusicInfo(parsedMusiinfos[i][2], time));
+		}
+		int longestPlayedTime = 0;
+		String answer = "(None)";
+		for(String key : playedMusics.keySet()) {
+			if(key.contains(transformedM)) {
+				int playedTime = playedMusics.get(key).playedTime;
+				if(longestPlayedTime < playedTime) {
+					longestPlayedTime = playedTime;
+					answer = playedMusics.get(key).musicName;
+				}
+			}
+		}
+		return answer;
+	}
 	
-	static void solve(String m, String[][] timetable, String[] musicName, String[] music) {
+	/*static void solve(String m, String[][] timetable, String[] musicName, String[] music) {
 		//모든 #을 가진 음을 소문자로 대체한다.
 		String transformedM = transformSharp(m);
 		String[] transformedMusic = new String[music.length];
@@ -80,7 +145,7 @@ public class KakaoRe10 {
 		}
 		
 		System.out.println(result);
-	}
+	}*/
 	//#을 가진 음을 소문자로 처리 (ex C# -> c, D# -> d ...)
 	static String transformSharp(String m) {
 		StringBuilder sb = new StringBuilder();
@@ -108,4 +173,5 @@ public class KakaoRe10 {
 		String[] splitedEnd = end.split(":");
 		return (Integer.parseInt(splitedEnd[0]) * 60 + Integer.parseInt(splitedEnd[1])) - (Integer.parseInt(splitedStart[0]) * 60 + Integer.parseInt(splitedStart[1]));
 	}
+	
 }

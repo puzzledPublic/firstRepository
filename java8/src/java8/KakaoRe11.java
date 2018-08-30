@@ -5,7 +5,8 @@ public class KakaoRe11 {
 	static String[][] words= {
 		{"go", "gone", "guild"},
 		{"abc", "def", "ghi", "jklm"},
-		{"word", "war", "warrior", "world"}
+		{"word", "war", "warrior", "world"},
+		{"zzz", "zzzz"}
 	};
 	//트라이
 	static class Trie {
@@ -32,9 +33,9 @@ public class KakaoRe11 {
 				return 1;
 			}
 			int next = toNumber(key.charAt(0));
-			if(tries[next] == null) {
-				return 0;
-			}
+//			if(tries[next] == null) {
+//				return 0;
+//			}
 			return tries[next].calcSearchTime(key.substring(1)) + 1;
 		}
 		public int toNumber(char c) {
