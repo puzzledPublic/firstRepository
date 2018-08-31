@@ -1,4 +1,4 @@
-package java8;
+package kakao;
 
 public class KakaoRe12 {
 	static String[][] lines= {

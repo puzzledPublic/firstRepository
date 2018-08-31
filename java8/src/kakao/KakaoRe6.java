@@ -1,4 +1,4 @@
-package java8;
+package kakao;
 
 //블록 제거
 //result =  14, 15, 75, 24
