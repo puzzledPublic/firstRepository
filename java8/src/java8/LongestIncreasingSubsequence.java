@@ -2,16 +2,16 @@ package java8;
 
 import java.util.Arrays;
 
-//ÃÖ´ë Áõ°¡ ºÎºÐ ¼ö¿­ ±æÀÌ ±¸ÇÏ±â (¹®Á¦ÇØ°áÀü·« µ¿Àû°èÈ¹¹ý)
+//ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½Ø°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¹ï¿½ï¿½)
 public class LongestIncreasingSubsequence {
 	static int cache[] = new int[100];
 	static int cache2[][] = new int[100][100];
-	// ¼ö¿­
+	// ï¿½ï¿½ï¿½ï¿½
 	static int s[] = { 1,2,3};
 	static int s2[] = { 10, 20, 30 };
 
 	public static void main(String args[]) {
-		// -1·Î Ä³½¬ ÃÊ±âÈ­
+		// -1ï¿½ï¿½ Ä³ï¿½ï¿½ ï¿½Ê±ï¿½È­
 		Arrays.fill(cache, -1);
 		for (int i = 0; i < cache2.length; i++) {
 			Arrays.fill(cache2[i], -1);
@@ -29,7 +29,7 @@ public class LongestIncreasingSubsequence {
 		System.out.println(maxLength);
 	}
 
-	// ÃÖ´ë Áõ°¡ ºÎºÐ ¼ö¿­ ±æÀÌ
+	// ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	static int lis(int start) {
 		if (cache[start] != -1) {
 			return cache[start];
@@ -45,12 +45,12 @@ public class LongestIncreasingSubsequence {
 		return ret;
 	}
 
-	// µÎ ¼ö¿­ÀÇ ÇÕÄ£ ÃÖ´ë Áõ°¡ ºÎºÐ ¼ö¿­ ±æÀÌ
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä£ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	static int jlis(int indexA, int indexB) {
 		if (cache2[indexA][indexB] != -1) {
 			return cache2[indexA][indexB];
 		}
-		// ±âº»ÀûÀ¸·Î ±æÀÌ´Â 2 ÀÌ»ó
+		// ï¿½âº»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ 2 ï¿½Ì»ï¿½
 		int ret = 2;
 
 		int a = s[indexA];
@@ -70,5 +70,35 @@ public class LongestIncreasingSubsequence {
 		}
 		return ret;
 
+	}
+	
+	static int lis3() {	//nlognë°©ë²•
+		int N = 10, index = 0;
+		int[] arr = new int[N];
+		int[] dp = new int[N];
+		dp[0] = arr[0];
+		
+		for(int j = 1; j < N; j++) {
+			if(dp[index] < arr[j]) {	//ì¦ê°€ ìˆ˜ì—´ì—ì„œ ë§ˆì§€ë§‰ ìˆ«ìžê°€ í˜„ìž¬ ë°°ì—´ ìˆ«ìžë³´ë‹¤ ìž‘ì€ ê²½ìš° ì¦ê°€ ìˆ˜ì—´ì— ìž‡ëŠ”ë‹¤.
+				dp[++index] = arr[j];
+			}else {
+				int k = lowerBound(dp, index, arr[j]);
+				dp[k] = arr[j];
+			}
+		}
+		return index;
+	}
+	//í˜„ìž¬ê¹Œì§€ ë§Œë“  ì¦ê°€ ìˆ˜ì—´ì—ì„œ në³´ë‹¤ í¬ë©´ì„œ ê°€ìž¥ ìž‘ì€ ìˆ˜ì˜ ìœ„ì¹˜ë¥¼ ë°˜í™˜
+	static int lowerBound(int[] dp, int end, int n) {
+		int start = 0;
+		while(start < end) {
+			int mid = (start + end) / 2;
+			if(dp[mid] >= n) {
+				end = mid;
+			}else {
+				start = mid + 1;
+			}
+		}
+		return end;
 	}
 }

@@ -30,7 +30,7 @@ public class BJ10819 {
 		bw.close();
 		br.close();
 	}
-	
+	//모든 순열을 찾고 그에따라 계산한 후 가장 큰 값을 찾는다.
 	static void solve(int start) {
 		if(start == N) {
 			int t = 0;
