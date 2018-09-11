@@ -15,7 +15,7 @@ public class BJ2294 {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		int N = Integer.parseInt(st.nextToken()), K = Integer.parseInt(st.nextToken());
-		
+
 		int[] coins = new int[N];
 		int[][] dp = new int[K + 1][N];	//dp[i][j] = 0 ~ j의 동전을 사용해서 i원을 만들 수 있는 동전의 최소 갯수
 		for(int i = 0; i < N; i++) {
