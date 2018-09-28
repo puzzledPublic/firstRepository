@@ -1,6 +1,5 @@
 package java8;
 
-
 //세그먼트 트리
 public class SegmentTree {
 	int[] segmentArr;	//세그먼트 트리

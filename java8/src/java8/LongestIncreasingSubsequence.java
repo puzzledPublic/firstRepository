@@ -2,16 +2,14 @@ package java8;
 
 import java.util.Arrays;
 
-//�ִ� ���� �κ� ���� ���� ���ϱ� (�����ذ����� ������ȹ��)
 public class LongestIncreasingSubsequence {
 	static int cache[] = new int[100];
 	static int cache2[][] = new int[100][100];
-	// ����
+	
 	static int s[] = { 1,2,3};
 	static int s2[] = { 10, 20, 30 };
 
 	public static void main(String args[]) {
-		// -1�� ĳ�� �ʱ�ȭ
 		Arrays.fill(cache, -1);
 		for (int i = 0; i < cache2.length; i++) {
 			Arrays.fill(cache2[i], -1);
@@ -29,7 +27,7 @@ public class LongestIncreasingSubsequence {
 		System.out.println(maxLength);
 	}
 
-	// �ִ� ���� �κ� ���� ����
+	
 	static int lis(int start) {
 		if (cache[start] != -1) {
 			return cache[start];
@@ -45,12 +43,12 @@ public class LongestIncreasingSubsequence {
 		return ret;
 	}
 
-	// �� ������ ��ģ �ִ� ���� �κ� ���� ����
+	
 	static int jlis(int indexA, int indexB) {
 		if (cache2[indexA][indexB] != -1) {
 			return cache2[indexA][indexB];
 		}
-		// �⺻������ ���̴� 2 �̻�
+		
 		int ret = 2;
 
 		int a = s[indexA];
@@ -71,7 +69,20 @@ public class LongestIncreasingSubsequence {
 		return ret;
 
 	}
-	
+	static int lis2() {
+		int max = 0;
+		
+		for(int i = 0; i < s.length; i++){
+			for(int j = 0; j < i; j++){
+				if(s[i] > s[j] && cache[i] < cache[j]+1){
+					cache[i]++;
+				}
+			}
+			if(cache[i] > max) max = cache[i];
+		}
+		
+		return max+1;
+	}
 	static int lis3() {	//nlogn방법
 		int N = 10, index = 0;
 		int[] arr = new int[N];

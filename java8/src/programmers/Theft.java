@@ -1,6 +1,5 @@
 package programmers;
 
-import java.util.Arrays;
 
 //도둑질
 public class Theft {
