@@ -1,6 +1,6 @@
 package kakaoSecond;
 
-import java.io.IOException;
+/*import java.io.IOException;
 import java.util.logging.Logger;
 
 import org.jsoup.Jsoup;
@@ -19,3 +19,4 @@ public class JsoupTest {
 		}
 	}
 }
+*/

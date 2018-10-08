@@ -1,6 +1,6 @@
 package kakaoSecond;
 
-import com.google.gson.Gson;
+/*import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -74,7 +74,7 @@ public class GsonTest {
 		jsonObject.add("home", gson.toJsonTree(home));
 		System.out.println(gson.toJson(jsonObject));
 	}
-}
+}*/
 
 
 
