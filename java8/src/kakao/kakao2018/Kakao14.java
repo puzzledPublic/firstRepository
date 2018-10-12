@@ -1,4 +1,4 @@
-package kakao;
+package kakao.kakao2018;
 //2017 카카오코드 예선 
 //보행자 천국
 public class Kakao14 {

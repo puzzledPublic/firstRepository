@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-//징검다리
+//징검다리	(이분탐색, 파라메트릭 서치)	****
 public class SteppingStone {
 	public static void main(String[] args) {
 		int[] distance = { 25, 65343245 };
@@ -36,25 +36,32 @@ public class SteppingStone {
 		}
 
 	}
-	
+	//0 ~ distance사이를 이분탐색한다.
+	//이분탐색으로 mid(바위를 지웠을때 최소값 중 가장 큰 값)가 정해졌을때 바위 위치를 순회하며 바위를 지우고(그리디하게) 원하는 바위 수 만큼 지웠는지 확인한다.
+	//파라메트릭 서치를 하는데 있어 중요한것은 답의 범위가 연속적이며 정렬돼 있어야하고 mid가 정해졌을때 좌, 우로 가는데 판단하는 절차를 떠올리는것 같다.
+	//이분탐색 문제라해서 어떻게 적용할까 생각하다 distance를 답의 범위로 잡고 풀어보려했으나 좌, 우 판단하는 절차가 떠오르지 않아 해답을 참조했다.
 	static int solution(int distance, int[] rocks, int n) {
 		int answer = 0;
-		Map<String, Integer> map = new HashMap<>();
 		Arrays.sort(rocks);
-		System.out.print("0 ");
-		for(int i = 0; i < rocks.length; i++) {
-			System.out.print(rocks[i] + " ");
+		
+		int start = 0, end = distance;
+		while(start < end) {
+			int mid = (start + end + 1) / 2;
+			int remove = 0, temp = 0;	//시작은 0의 위치
+			for(int i = 0; i < rocks.length; i++) {
+				if(rocks[i] - temp < mid) {	//각 바위를 지워볼때 거리가 mid보다 작으면 실제로 지운다.
+					remove++;
+				}else {		//아니라면 그 바위를 기준점으로 두고 거리를 계산한다.
+					temp = rocks[i];
+				}
+			}
+			System.out.println(start + " " + end + " " + mid + " " + remove);
+			if(remove > n) {	//지운 바위 수가 원하는 바위 수 보다 더 많으면 mid를 낮춘다.
+				end = mid - 1;
+			}else {
+				start = mid;
+			}
 		}
-		System.out.println(distance);
-		
-		System.out.print(rocks[0] + " ");
-		for(int i = 1; i < rocks.length; i++) {
-			System.out.print(rocks[i] - rocks[i - 1] + " ");
-		}
-		System.out.print(distance - rocks[rocks.length - 1]);
-		System.out.println();
-		
-		
-		return answer;
+		return answer = start;
 	}
 }

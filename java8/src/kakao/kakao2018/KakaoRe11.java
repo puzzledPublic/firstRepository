@@ -1,4 +1,4 @@
-package kakao;
+package kakao.kakao2018;
 
 //자동완성
 public class KakaoRe11 {

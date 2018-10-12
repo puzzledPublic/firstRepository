@@ -1,4 +1,4 @@
-package kakao;
+package kakao.kakao2018;
 
 public class KakaoRe12 {
 	static String[][] lines= {

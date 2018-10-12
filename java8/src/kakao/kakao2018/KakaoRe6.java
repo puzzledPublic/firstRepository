@@ -1,4 +1,4 @@
-package kakao;
+package kakao.kakao2018;
 
 //블록 제거
 //result =  14, 15, 75, 24
