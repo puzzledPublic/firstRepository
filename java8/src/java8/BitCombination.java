@@ -1,6 +1,6 @@
 package java8;
-//비트마스크로 순열만들기
-public class BitPermutation {
+//비트마스크로 조합만들기
+public class BitCombination {
 	static char[] arr = {'a', 'b', 'c', 'd'};
 	public static void main(String[] args) {
 
