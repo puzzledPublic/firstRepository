@@ -55,7 +55,7 @@ public class CandidateKey {
         }
         return answer = list.size();
     }
-	
+	//recursive combination
 	static int solution2(String[][] relation) {
 		boolean[] chk = new boolean[relation[0].length];	//선택한 컬럼을 나타낼 체크배열
 		List<boolean[]> list = new ArrayList<>();			//후보키 리스트
