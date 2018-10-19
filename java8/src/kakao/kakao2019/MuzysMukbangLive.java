@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
 
-//무지의 먹방 라이브
+//4번 무지의 먹방 라이브
 public class MuzysMukbangLive {
 	public static void main(String[] args) {
 		int[][] food_times = {

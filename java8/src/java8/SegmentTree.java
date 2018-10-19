@@ -1,13 +1,13 @@
 package java8;
 
-//세그먼트 트리
+//세그먼트 트리 (RMQ)
 public class SegmentTree {
 	int[] segmentArr;	//세그먼트 트리
 	int length;	//데이터 배열의 길이
 	public SegmentTree(int[] arr, int n) {
-		segmentArr = new int[n * 4];
+		segmentArr = new int[n * 4];	//넉넉하게 원 배열 길이의 4배로 잡는다
 		this.length = n;
-		init(arr, 0, n - 1, 1);
+		init(arr, 0, n - 1, 1);	//(segmentArr의 시작 인덱스는 1부터)
 	}
 	//초기화
 	int init(int[] arr, int left, int right, int node) {
