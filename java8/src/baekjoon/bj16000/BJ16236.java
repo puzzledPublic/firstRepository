@@ -33,6 +33,7 @@ public class BJ16236 {
 		
 		while(bfs(dist));	//더 이상 먹을 수 없을때까지 진행한다.
 		System.out.println(time);
+		br.close();
 	}
 	
 	static boolean bfs(int[][] dist) {

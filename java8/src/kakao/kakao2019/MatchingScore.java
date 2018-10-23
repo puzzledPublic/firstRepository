@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Set;
 
-//매칭 점수
+//6번 매칭 점수
 public class MatchingScore {
 	public static void main(String[] args) {
 		String[] word = {"blind", "Muzi"};
