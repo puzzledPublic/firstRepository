@@ -1,73 +1,70 @@
 package java8_1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+
 
 public class exercise{
 	
-	final static String GABSIXNAME = "육갑이";
+	static long seed = 2;
+	
 	public static void main(String[] args) {
 		
-		List<People> pp = new ArrayList<>();
-		pp.add(new People("육갑이", 16));
-		pp.add(new People("칠갑이", 17));
-		pp.add(new People("팔갑이", 18));
-		pp.add(new People("육갑이", 19));
-		pp.add(new People("팔갑이", 21));
-		pp.add(new People("육갑이", 55));
-		List<Customer> cus = new ArrayList<>();
-		pp.stream().forEach(item->{ 
-									if(item.getName().equals(GABSIXNAME)){
-										cus.add(new Customer(GABSIXNAME, "서울역 2층 " + item.getAge()));
-									}
-								  }
-						    );
+		for(long i = 1374037200; i < 1374123600; i++){
+			Random rand = new Random(i);
+			if(rand.nextInt(1000) == 643){
+				
+				seed = i;
+				for(int j = 0 ; j < 9; j++){
+					System.out.print(rand.nextInt(1000) + " ");
+				}
+				System.out.println(seed +"\n");
+				
+			}
+		}
 		
-		cus.stream().forEach(System.out::println);
 	}
 	
-	
-}
-class People{
-	private String name;
-	private int age;
-	public People(String name, int age){
-		this.name = name;
-		this.age = age;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getAge() {
-		return age;
-	}
-	public void setAge(int age) {
-		this.age = age;
+	static int nextInt(int n){
+		seed = (seed * 0x5DEECE66DL + 0xB) & ((1L << 48) - 1);
+		return (int)((seed >>> 17) % n);
 	}
 	
+	/*
+	public static void main(String[] args) {
+		Scanner stdin = new Scanner(System.in);
+	    int testCaseCount = stdin.nextInt();
+	    for (int testCaseIndex = 0; testCaseIndex < testCaseCount; testCaseIndex += 1) {
+	      int startTime = stdin.nextInt();
+	      int endTime = stdin.nextInt();
+	      int[] values = new int[10];
+
+	      for (int j = 0; j < 10; j += 1) {
+	        values[j] = stdin.nextInt();
+	      }
+
+	      for (int seed = startTime; seed <= endTime; seed += 1) {
+	        Random rand = new Random(seed);
+	        boolean bad = false;
+	        for (int valueIndex = 0; valueIndex < values.length; valueIndex += 1) {
+	          if (rand.nextInt(1000) != values[valueIndex]) {
+	            bad = true;
+	            break;
+	          }
+	        }
+	        if (!bad) {
+	          System.out.print(seed);
+	          System.out.print(" ");
+	          for (int i = 0; i < 10; i += 1) {
+	            System.out.print(rand.nextInt(1000));
+	            System.out.print(" ");
+	          }
+	          System.out.print("\n");
+	        }
+	      }
+
+	    }
+	}*/
 }
-class Customer{
-	private String name;
-	private String address;
-	public Customer(String name, String address){
-		this.name = name;
-		this.address = address;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-}
+
 
