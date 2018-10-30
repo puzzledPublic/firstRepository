@@ -1,6 +1,6 @@
 package kakao.kakao2018;
-
-public class KakaoRe12 {
+//추석 트래픽
+public class ChuseokTraffic {
 	static String[][] lines= {
 		{
 			"2016-09-15 01:00:04.001 2.0s", "2016-09-15 01:00:07.000 2s"

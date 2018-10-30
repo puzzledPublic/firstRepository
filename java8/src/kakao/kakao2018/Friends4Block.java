@@ -1,8 +1,8 @@
 package kakao.kakao2018;
 
-//블록 제거
+//프렌즈 4블록
 //result =  14, 15, 75, 24
-public class KakaoRe6 {
+public class Friends4Block {
 	static int[] m = {4, 6, 5, 5};	//높이
 	static int[] n = {5, 6, 15, 6};	//폭
 	static String[][] board = {

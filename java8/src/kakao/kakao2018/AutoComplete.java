@@ -1,7 +1,7 @@
 package kakao.kakao2018;
 
 //자동완성
-public class KakaoRe11 {
+public class AutoComplete {
 	static String[][] words= {
 		{"go", "gone", "guild"},
 		{"abc", "def", "ghi", "jklm"},

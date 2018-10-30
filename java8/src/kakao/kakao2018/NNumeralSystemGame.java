@@ -4,7 +4,7 @@ import java.util.Stack;
 
 //N진수 게임
 //result = 0111, 02468ACE11111111, 13579BDF01234567
-public class KakaoRe7 {
+public class NNumeralSystemGame {
 	static int[] n = {2, 16, 16, 8}; //진법
 	static int[] t = {4, 16, 16, 100}; //미리 구할 숫자의 갯수
 	static int[] m = {2, 2, 2, 4};	  //게임에 참가하는 인원

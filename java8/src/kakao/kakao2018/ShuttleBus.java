@@ -2,7 +2,7 @@ package kakao.kakao2018;
 
 import java.util.Arrays;
 
-public class KakaoRe4 {
+public class ShuttleBus {
 	static int[] n = {1, 2, 2, 1, 1, 10};	//운행 횟수
 	static int[] t = {1, 10, 1, 1, 1, 60};	//배차 간격(분)
 	static int[] m = {5, 2, 2, 5, 1, 45};	//탑승 제한 인원

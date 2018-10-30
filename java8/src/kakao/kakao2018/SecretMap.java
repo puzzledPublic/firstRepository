@@ -1,8 +1,8 @@
 package kakao.kakao2018;
 
 import java.util.Scanner;
-
-public class Kakao1 {
+//비밀지도
+public class SecretMap {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int[] arr1 = {46, 33, 33 ,22, 31, 50};

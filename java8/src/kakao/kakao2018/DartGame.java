@@ -2,8 +2,8 @@ package kakao.kakao2018;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-public class kakao2 {
+//다트 게임
+public class DartGame {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		

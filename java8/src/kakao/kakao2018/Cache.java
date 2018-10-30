@@ -1,10 +1,9 @@
 package kakao.kakao2018;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
-
-public class KakaoRe3 {
+//캐쉬
+public class Cache {
 	public static void main(String[] args) {
 		String[][] strs = {{"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"}
 		,{"Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul", "Jeju", "Pangyo", "Seoul"}

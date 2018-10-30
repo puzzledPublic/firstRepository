@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-//자카드 유사도
-public class KakaoRe5 {
+//뉴스 클러스터링 (자카드 유사도)
+public class NewsClustering {
 	
 	static String[] inputStr1 = {"FRANCE", "handshake", "aa1+aa2", "E=M*C^2", "a*b","aab ac", "ab"};
 	static String[] inputStr2 = {"french", "shake hands", "AAAA12", "e=m*c^2", "c-d","aab aa", "cd"};

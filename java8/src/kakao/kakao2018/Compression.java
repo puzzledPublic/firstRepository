@@ -1,15 +1,13 @@
 package kakao.kakao2018;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 //압축
 //result = [11, 1, 27, 5]
 //[20, 15, 2, 5, 15, 18, 14, 15, 20, 27, 29, 31, 36, 30, 32, 34]
 //[1, 2, 27, 29, 28, 31, 30]
-public class KakaoRe8 {
+public class Compression {
 	static String[] str = {
 		"KAKAO",
 		"TOBEORNOTTOBEORTOBEORNOT",

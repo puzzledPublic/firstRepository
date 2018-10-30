@@ -8,7 +8,7 @@ import java.util.List;
 //파일명 정렬
 //stable sort = 버블정렬, 합병정렬, 선택정렬, 쉘정렬, 카운팅정렬, 버켓정렬
 //unstable sort = 힙정렬, 퀵정렬
-public class KakaoRe9 {
+public class FileNameSort {
 	static String[][] inputs= {
 		{"img12.png", "img10.png", "img02.png", "img1.png", "IMG01.GIF", "img2.JPG"},
 		{"F-5 Freedom Fighter", "B-50 Superfortress", "A-10 Thunderbolt II", "F-14 Tomcat"},

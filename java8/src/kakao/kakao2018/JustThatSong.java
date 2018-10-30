@@ -2,8 +2,8 @@ package kakao.kakao2018;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-public class KakaoRe10 {
+//방금그곡
+public class JustThatSong {
 	/*static String[] ms = {	//네오가 들은 음악 중간 혹은 전체 내용 (i = 입력 순서)
 		"ABCDEFG",
 		"CC#BCC#BCC#BCC#B",
