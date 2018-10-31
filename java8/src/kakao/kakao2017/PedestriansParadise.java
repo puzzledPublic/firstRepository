@@ -1,7 +1,7 @@
-package kakao.kakao2018;
+package kakao.kakao2017;
 //2017 카카오코드 예선 
 //보행자 천국
-public class Kakao14 {
+public class PedestriansParadise {
 	static int MOD = 20170805;
 	public static void main(String[] args) {
 		int[] m = {3, 3};

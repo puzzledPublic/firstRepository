@@ -1,4 +1,7 @@
 package programmers;
+
+import java.util.Arrays;
+
 //땅따먹기
 public class Hopscotch {
 	public static void main(String[] args) {
@@ -8,7 +11,7 @@ public class Hopscotch {
 				{4, 3, 2, 1}
 		};
 		
-		System.out.println(solution(land));
+		System.out.println(solution(land));		
 	}
 	
 	static int solution(int[][] land) {

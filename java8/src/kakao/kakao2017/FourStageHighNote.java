@@ -1,9 +1,9 @@
-package kakao.kakao2018;
+package kakao.kakao2017;
 
 import java.util.Stack;
 
 //4단 고음
-public class Kakao16 {
+public class FourStageHighNote {
 	public static void main(String[] args) {
 		int[] n = {15, 24, 41, 2147483647};
 		

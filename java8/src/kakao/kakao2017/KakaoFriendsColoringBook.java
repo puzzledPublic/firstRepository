@@ -1,11 +1,11 @@
-package kakao.kakao2018;
+package kakao.kakao2017;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
 //2017 카카오코드 예선 
 //카카오프렌즈 컬러링북
-public class Kakao13 {
+public class KakaoFriendsColoringBook {
 	static class Pos {
 		int x, y;
 		public Pos(int x, int y) {

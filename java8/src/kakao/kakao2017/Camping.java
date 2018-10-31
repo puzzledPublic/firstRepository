@@ -1,4 +1,4 @@
-package kakao.kakao2018;
+package kakao.kakao2017;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 
 //캠핑
-public class Kakao15 {
+public class Camping {
 	public static void main(String[] args) {
 		int n = 4;
 		int[][] data = {
