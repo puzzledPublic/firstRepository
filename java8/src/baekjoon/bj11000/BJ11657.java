@@ -1,4 +1,4 @@
-package baekjoon.bj10000;
+package baekjoon.bj11000;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -66,7 +66,7 @@ public class BJ11657 {
 			w.write("-1\n");
 		}else {	//아니라면 시작점을 제외한 모든 정점들까지 최단 거리 출력
 			for(int i = 2; i < upper.length; i++) {
-				if(upper[i] >= 987654321) {	//도달 불가능하면 -1
+				if(upper[i] >= 500000000) {	//도달 불가능하면 -1	, 음수간선만 있다면 (987654321 + 음수)가 최소값이 되어버리므로 하한선을 더 낮게 잡자.
 					w.write("-1\n");
 				}else {
 					w.write(upper[i] + "\n");
