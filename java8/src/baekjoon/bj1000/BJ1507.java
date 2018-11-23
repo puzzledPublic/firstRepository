@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.StringTokenizer;
 
-//궁금한 민호
+//궁금한 민호	(플로이드 와샬을 이용한 풀이 공부 필요)
 public class BJ1507 {
 	static class RoadInfo {
 		int a, b, time;
