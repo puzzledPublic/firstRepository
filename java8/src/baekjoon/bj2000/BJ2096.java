@@ -10,9 +10,10 @@ import java.util.function.IntBinaryOperator;
 public class BJ2096 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
 		int N = Integer.parseInt(br.readLine());
 		int[][] arr = new int[N][3];
-		int[][] dp = new int[N][3];
+		int[][] dp = new int[2][3];
 		StringTokenizer st;
 		for(int i = 0; i < N; i++) {
 			st = new StringTokenizer(br.readLine());
@@ -20,16 +21,14 @@ public class BJ2096 {
 			arr[i][1] = Integer.parseInt(st.nextToken());
 			arr[i][2] = Integer.parseInt(st.nextToken());
 		}
-		for(int i = 0; i < 3; i++) {
-			dp[0][i] = arr[0][i];
-		}
 		
 		solve(arr, dp, (a, b) -> a < b ? b : a);	//최대값
 		solve(arr, dp, (a, b) -> a < b ? a : b);	//최소값
 		
 		br.close();
 	}
-	//배열을 적게 만들어 푸는 방법도 있다. 이 경우는 필요한 모든 배열을 선언해서 메모리가 커진다.
+	
+	//배열을 적게 만들어 푸는 방법도 있다. 이 경우는 필요한 모든 배열을 선언해서 메모리가 커진다.		//재채점으로 메모리 초과 됨
 	static void solve(int[][] arr, int[][] dp, IntBinaryOperator ibo) {	//DP
 		int len = arr.length;
 		for(int i = 1; i < len; i++) {
