@@ -24,7 +24,7 @@ public class BJ10989 {
 	
 	static void solve(int[] arr, Writer w) throws IOException {	//숫자들의 횟수를 세서 0 부터 최대 숫자까지 각 숫자 횟수만큼 출력
 		for(int i = 0; i < arr.length; i++) {
-			for(int j = 0; j <arr[i]; j++) {
+			for(int j = 0; j < arr[i]; j++) {
 				w.write(i + "\n");
 			}
 		}
