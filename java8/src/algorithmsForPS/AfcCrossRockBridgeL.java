@@ -41,13 +41,14 @@ public class AfcCrossRockBridgeL {
 		return dp[bridgeNum][spellPosition][bridgePosition];
 	}
 	
+	//아직 이해 부족
 	static int solve2() {
 		dp2 = new int[2][30];	//i다리에서 j번 문자로 끝나는 모든 경우의 수
 		dp2[0][0] = dp2[1][0] = 1;
 		for(int i = 0; i < bridge[0].length; i++) {
 			for(int j = spell.length - 1; j >= 0; j--) {
 				if(bridge[0][i] == spell[j]) {
-					dp2[1][j + 1] += dp2[0][j];
+					dp2[1][j + 1] += dp2[0][j];	//dp2[i][j] += dp2[1 - i][j - 1] (i = 0 or 1)
 				}
 				if(bridge[1][i] == spell[j]) {
 					dp2[0][j + 1] += dp2[1][j];
