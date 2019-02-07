@@ -46,6 +46,7 @@ public class BJ9466 {
 					}
 				}
 			}
+//			중간 count연산이 없을시 사용한 답 구하기.
 //			for(int j = 1; j <= N; j++) {
 //				if(chk[j] != -1) {
 //					count++;
