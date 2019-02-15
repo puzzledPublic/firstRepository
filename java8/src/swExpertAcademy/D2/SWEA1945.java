@@ -1,36 +1,33 @@
-package swExpertAcademy;
+package swExpertAcademy.D2;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.StringTokenizer;
 
-//최빈수 구하기
-public class SWEA1204 {
+//간단한 소인수분해
+public class SWEA1945 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
+		int[] num = {2, 3, 5, 7, 11};
 		int T = Integer.parseInt(br.readLine());
 		for(int i = 1; i <= T; i++) {
-			br.readLine();
-			int[] score = new int[101];
-			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-			while(st.hasMoreTokens()) {
-				int s = Integer.parseInt(st.nextToken());
-				score[s]++;	//점수 s의 개수
-			}
-			int max = -1, maxScore = 0;
-			for(int j = 0; j < 101; j++) {
-				if(max <= score[j]) {
-					max = score[j];
-					maxScore = j;
+			int N = Integer.parseInt(br.readLine());
+			bw.write("#" + i + " ");
+			for(int j = 0; j < num.length; j++) {
+				int count = 0;
+				while(N % num[j] == 0) {
+					count++;
+					N /= num[j];
 				}
+				bw.write(count + " ");
 			}
-			bw.write("#" + i + " " + maxScore + "\n");
+			bw.write("\n");
 		}
+		
 		bw.flush();
 		bw.close();
 		br.close();

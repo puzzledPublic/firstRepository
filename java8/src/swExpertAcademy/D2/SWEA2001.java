@@ -1,4 +1,4 @@
-package swExpertAcademy;
+package swExpertAcademy.D2;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,41 +7,42 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-//숫자 배열 회전
-public class SWEA1961 {
+//파리퇴치
+public class SWEA2001 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
 		int T = Integer.parseInt(br.readLine());
 		
-		int[][] arr = new int[7][7];
+		StringTokenizer st;
 		for(int i = 1; i <= T; i++) {
-			int N = Integer.parseInt(br.readLine());
+			st = new StringTokenizer(br.readLine());
+			int N = Integer.parseInt(st.nextToken());
+			int M = Integer.parseInt(st.nextToken());
+			int[][] arr = new int[N][N];
 			for(int j = 0; j < N; j++) {
-				StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+				st = new StringTokenizer(br.readLine());
 				for(int k = 0; k < N; k++) {
 					arr[j][k] = Integer.parseInt(st.nextToken());
 				}
 			}
-			bw.write("#" + i + "\n");
-			//시계방향으로 회전
-			for(int j = 0; j < N; j++) {
-				for(int k = N - 1; k >= 0; k--) {	//90도
-					bw.write(arr[k][j] + 48);
+			int max = 0;
+			for(int j = 0; j < N - M + 1; j++) {
+				for(int k = 0; k < N - M + 1; k++) {
+					int count = 0;
+					for(int u = j; u < j + M; u++) {
+						for(int h = k; h < k + M; h++) {
+							count += arr[u][h];
+						}
+					}
+					if(max < count) {
+						max = count;
+					}
 				}
-				bw.write(" ");
-				for(int k = N - 1; k >= 0; k--) {	//180도
-					bw.write(arr[N - j - 1][k] + 48);
-				}
-				bw.write(" ");
-				for(int k = 0; k < N; k++) {		//270도
-					bw.write(arr[k][N - j - 1] + 48);
-				}
-				bw.write("\n");
 			}
+			bw.write("#" + i + " " + max + "\n");
 		}
-		
 		bw.flush();
 		bw.close();
 		br.close();
