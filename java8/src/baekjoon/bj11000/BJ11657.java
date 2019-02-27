@@ -31,7 +31,8 @@ public class BJ11657 {
 		}
 		for(int i = 0; i < M; i++) {
 			st = new StringTokenizer(br.readLine(), " ");
-			list.get(Integer.parseInt(st.nextToken())).add(new Node(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())));
+			int a = Integer.parseInt(st.nextToken()), b = Integer.parseInt(st.nextToken()), w = Integer.parseInt(st.nextToken());
+			list.get(a).add(new Node(b, w));
 		}
 		solve(list, 1, N, bw);
 		bw.flush();
@@ -52,7 +53,7 @@ public class BJ11657 {
 				for(Node node : list.get(here)) {
 					int cost = node.weight;
 					int there = node.vertex;
-					if(upper[there] > upper[here] + cost) {
+					if(upper[here] != 987654321 && upper[there] > upper[here] + cost) {	//upper[here] == INF라는것은 시작점(1) ~ here까지의 경로가 아직 없다는 것
 						upper[there] = upper[here] + cost;
 						updated = true;
 					}

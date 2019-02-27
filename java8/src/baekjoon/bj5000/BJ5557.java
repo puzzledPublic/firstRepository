@@ -24,7 +24,7 @@ public class BJ5557 {
 		long result = solve(1, arr[0]);	//초기시작 값은 arr[0]
 		
 		bw.write(result + "\n");
-		
+
 		bw.flush();
 		bw.close();
 		br.close();
