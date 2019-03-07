@@ -12,8 +12,8 @@ import java.util.StringTokenizer;
 public class BJ5427 {
 	static int[][] d = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 	static class Coord {
-		boolean isFire;
-		int x, y, step;
+		boolean isFire;	//현재 좌표가 불인가, 사람인가
+		int x, y, step;	//현재 좌표, 흐른 시간
 		Coord(int x, int y, int step, boolean isFire) {
 			this.x = x;
 			this.y = y;
@@ -26,7 +26,7 @@ public class BJ5427 {
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		int T = Integer.parseInt(br.readLine());
 		char[][] building = new char[1000][1000];
-		PriorityQueue<Coord> queue = new PriorityQueue<BJ5427.Coord>((a, b) -> {
+		PriorityQueue<Coord> queue = new PriorityQueue<BJ5427.Coord>((a, b) -> {	//사람-> 불 순서로 탐색하기 위해 priorityQueue를 쓴다.
 			if(a.step == b.step) {
 				if(a.isFire == b.isFire) {
 					return 0;
@@ -45,9 +45,9 @@ public class BJ5427 {
 				String str = br.readLine();
 				for(int k = 0; k < W; k++) {
 					building[j][k] = str.charAt(k);
-					if(building[j][k] == '*') {
+					if(building[j][k] == '*') {	//초기 불의 위치를 큐에 저장
 						queue.add(new Coord(j, k, 0, true));
-					}else if(building[j][k] == '@') {
+					}else if(building[j][k] == '@') {	//초기 사람 위치를 큐에 저장
 						queue.add(new Coord(j, k, 0, false));
 					}
 				}
@@ -55,10 +55,10 @@ public class BJ5427 {
 			int result = -1;
 			while(!queue.isEmpty()) {
 				Coord current = queue.poll();
-				if(!current.isFire && building[current.x][current.y] == '*') {
+				if(!current.isFire && building[current.x][current.y] == '*') {	//이미 불이 붙었다면 계속탐색
 					continue;
 				}
-				if(!current.isFire && (current.x == 0 || current.x == H - 1 || current.y == 0 || current.y == W - 1)) {
+				if(!current.isFire && (current.x == 0 || current.x == H - 1 || current.y == 0 || current.y == W - 1)) {	//외곽까지 나갔다면 탈출.
 					result = current.step + 1;
 					break;
 				}
@@ -66,12 +66,12 @@ public class BJ5427 {
 				for(int j = 0; j < d.length; j++) {
 					int nx = current.x + d[j][0], ny = current.y + d[j][1];
 					if((0 <= nx && nx < H) && (0 <= ny && ny < W)) {
-						if(current.isFire) {
+						if(current.isFire) {	//불인 경우 번지게 만든다.
 							if(building[nx][ny] == '.' || building[nx][ny] == '@') {
 								queue.add(new Coord(nx, ny, current.step + 1, current.isFire));
 								building[nx][ny] = '*';
 							}
-						}else {
+						}else {	//사람인 경우 움직이게 만든다.
 							if(building[nx][ny] == '.') {
 								queue.add(new Coord(nx, ny, current.step + 1, current.isFire));
 								building[nx][ny] = '@';
