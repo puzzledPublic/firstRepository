@@ -1,4 +1,4 @@
-package baekjoon.bj11000;
+package baekjoon.bj10000;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
