@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
-//녹색 옷 입은 애가 젤다지?
+//녹색 옷 입은 애가 젤다지? (다익스트라)
 public class BJ4485 {
 	
 	static class Coord {
@@ -29,7 +29,7 @@ public class BJ4485 {
 		int N, problem = 1;
 		while((N =Integer.parseInt(br.readLine())) != 0) {
 			int[][] map = new int[N][N];
-			int[][] dist = new int[N][N];
+			int[][] dist = new int[N][N];	//(0,0) ~ (i,j)까지 갈때 최소로 잃는 돈
 			for(int i = 0; i < N; i++) {
 				StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 				Arrays.fill(dist[i], 987654321);
@@ -37,7 +37,7 @@ public class BJ4485 {
 					map[i][j] = Integer.parseInt(st.nextToken());
 				}
 			}
-			dist[0][0] = map[0][0];
+			dist[0][0] = map[0][0];	//처음 잃는 돈
 			PriorityQueue<Coord> pq = new PriorityQueue<>((a, b) -> a.weight - b.weight);
 			pq.add(new Coord(0, 0, map[0][0]));
 			while(!pq.isEmpty()) {
