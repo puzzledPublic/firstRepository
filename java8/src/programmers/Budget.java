@@ -6,9 +6,10 @@ public class Budget {
 		int[][] budgets = {
 				{120, 110, 140, 150},
 				{1, 1, 100},
-				{70, 80, 30, 40, 100}
+				{70, 80, 30, 40, 100},
+				{120, 100, 100, 165},
 		};
-		int[] M = {485, 10000, 450};
+		int[] M = {485, 10000, 450, 485};
 		
 		for(int i = 0; i < budgets.length; i++) {			
 			System.out.println(solution(budgets[i], M[i]));
