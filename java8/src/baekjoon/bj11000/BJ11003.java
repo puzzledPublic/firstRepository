@@ -5,6 +5,8 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
@@ -15,6 +17,19 @@ public class BJ11003 {
 		
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		int N = Integer.parseInt(st.nextToken()), L = Integer.parseInt(st.nextToken());
+		
+		Deque<Integer> deque = new LinkedList<>();
+		
+		int s = -(L - 1), e = 0;
+		while(e < N) {
+			
+			if(deque.isEmpty()) {
+				
+			}
+			
+			s++;
+			e++;
+		}
 		
 		bw.flush();
 		bw.close();
