@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.TreeSet;
 
 //새내기와 헌내기 (이분그래프)
-//정점이 서로 연결돼있을때 한정점이 새내기라면 바로 이어지는 정점은 헌내기가돼야한다.
-//이는 이분그래프를 조사하는 것과 같고, 그래프가 여러개 있을 수 있으니 각 그래프마다 최대 갯수를 구해 더해주면 된다.
+//정점이 서로 연결돼 있을때 한 정점이 새내기라면 바로 이어지는 정점은 헌내기가 돼야한다.
+//이는 이분그래프를 조사하는 것과 같고, 그래프가 여러개 있을 수 있으니 각 그래프마다 최대 개수를 구해 더해주면 된다.
 public class BJ17209 {
 	static List<TreeSet<Integer>> graph = new ArrayList<>();
 	static int[] visited;
