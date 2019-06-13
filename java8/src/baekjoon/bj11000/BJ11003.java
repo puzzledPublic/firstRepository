@@ -5,11 +5,11 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.StringTokenizer;
 
+//최소값 찾기
 public class BJ11003 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,26 +18,50 @@ public class BJ11003 {
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		int N = Integer.parseInt(st.nextToken()), L = Integer.parseInt(st.nextToken());
 		
-		Deque<Integer> deque = new LinkedList<>();
+		int[] arr = new int[N];
+		int[] result = new int[N];
+		st = new StringTokenizer(br.readLine(), " ");
+		Deque<Integer> deque = new ArrayDeque<>();
 		
-		int s = -(L - 1), e = 0;
-		while(e < N) {
-			
-			if(deque.isEmpty()) {
-				
-			}
-			
-			s++;
-			e++;
-		}
-		
+	    for(int n = 0 ; n < N ; ++n){
+	    	arr[n] = Integer.parseInt(st.nextToken());
+	        while(!deque.isEmpty() && arr[deque.peekLast()] > arr[n]) {
+	        	deque.pollLast();
+	        }
+	        deque.offer(n);
+	        if(deque.peekFirst() < n - L + 1) {
+	        	deque.pollFirst();
+	        }
+	        result[n] = arr[deque.peekFirst()];
+	    }
+	    for(int n = 0 ; n < N ; ++n) {
+	    	bw.write(result[n] + " ");
+	    }
+//시간초과
+//		int s = 0;
+//		for(int i = 0; i < N; i++) {
+//			if(i - s == L) {
+//				if(deque.peekFirst() == arr[s]) {
+//					deque.pollFirst();
+//				}
+//				s++;
+//			}
+//			arr[i] = Integer.parseInt(st.nextToken());
+//			while(!deque.isEmpty() && deque.peekLast() > arr[i]) {
+//				deque.pollLast();
+//			}
+//			deque.offer(arr[i]);
+//			result[i] = deque.peekFirst();
+//		}
+//		for(int i = 0; i < N; i++) {
+//			bw.write(result[i] + " ");
+//		}
 		bw.flush();
 		bw.close();
 		br.close();
 	}
 }
 //  세그먼트 트리로 시간초과
-////최소값 찾기
 //public class BJ11003 {
 //	static int[] segTree;
 //	static int[] arr;
