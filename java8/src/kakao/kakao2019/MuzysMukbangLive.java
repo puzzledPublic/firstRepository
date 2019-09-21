@@ -56,7 +56,7 @@ public class MuzysMukbangLive {
         List<Food> list = new ArrayList<>();
         while(!pq.isEmpty()) {
         	Food f = pq.poll();
-        	if(f.leftTime > 0) {	//현재 남아있는 음식들을 리스트에 따로 저장
+        	if(f.leftTime > 0) {	//인덱스 순 정렬을 위해 현재 남아있는 음식들을 리스트에 따로 저장
         		list.add(f);
         	}
         }
