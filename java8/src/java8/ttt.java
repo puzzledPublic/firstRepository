@@ -1,11 +1,5 @@
 package java8;
 
-import java.util.Random;
-import java.util.Scanner;
-
-import java8_1.exercise;
-import java8_1.tester;
-
 public class ttt{
 
 	public static void main(String args[])
