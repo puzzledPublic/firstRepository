@@ -33,15 +33,10 @@ public class BJ3184 {
 				wolf = 0;
 				if(yard[i][j] != 'X' && yard[i][j] != '#') {
 					dfs(i, j);
-					if(i == 0 || j == 0) {	//아무영역도 아닌 경우(탈출영역?) 둘다 산다.
-						sCount += sheep;
+					if(sheep <= wolf) {	//늑대 숫자가 양보다 같거나 많으면 늑대가 살아남는다
 						wCount += wolf;
-					}else {	//그 외 한 영역에 있는 경우
-						if(sheep <= wolf) {	//늑대 숫자가 양보다 같거나 많으면 늑대가 살아남는다
-							wCount += wolf;
-						}else {	//양의 숫자가 더 많다면 양이 살아남는다.
-							sCount += sheep;
-						}
+					}else {	//양의 숫자가 더 많다면 양이 살아남는다.
+						sCount += sheep;
 					}
 				}
 			}
