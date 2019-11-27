@@ -15,7 +15,7 @@ public class AddrToCoord {
 	public static void main(String args[])
 	{
 		/*
-		try(BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(new File("C:\\Users\\KHM\\Desktop\\¼­¿ï½ÃÀÚÀü°Å°ø±âÁÖÀÔ±â¼³Ä¡ÇöÈ²2.txt"))))
+		try(BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(new File("C:\\Users\\KHM\\Desktop\\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±â¼³Ä¡ï¿½ï¿½È²2.txt"))))
 		    ;BufferedWriter out = new BufferedWriter(new FileWriter(new File("C:\\Users\\KHM\\Desktop\\AddrToCoord.txt"))))
 		{
 			ObjectMapper om = new ObjectMapper();
@@ -35,19 +35,19 @@ public class AddrToCoord {
 		coordToJs();
 
 	}
-	//´ÙÀ½api·Î ÁÖ¼Ò°Ë»öÇÏ¿© ÁÂÇ¥°ª °¡Á®¿À±â
+	//ï¿½ï¿½ï¿½ï¿½apiï¿½ï¿½ ï¿½Ö¼Ò°Ë»ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	/*
 	public static void loop(ObjectMapper om, String addr,BufferedWriter out)
 	{
 		try { 
 			//ObjectMapper om = new ObjectMapper();
-			//ÁÖ¼Ò ÀÎÄÚµù
+			//ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½Úµï¿½
 			String encodingResult = URLEncoder.encode(addr,"UTF-8");
-			//url »ý¼º
+			//url ï¿½ï¿½ï¿½ï¿½
 			URL url = new URL("https://apis.daum.net/local/v1/search/keyword.json?apikey=05773f117e634e194f7f2308134d4e7f&query="+encodingResult);
-			//connection »ý¼º
+			//connection ï¿½ï¿½ï¿½ï¿½
 			URLConnection URLConnection =  url.openConnection();
-			//json ÀÀ´äÀ» ¹Þ¾Æ ÀÎÄÚµù ÈÄ ÆÄÀÏ¿¡ ÀúÀå
+			//json ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 			try(BufferedReader in = new BufferedReader(new InputStreamReader(URLConnection.getInputStream(),"UTF-8")))
 			{
 				JsonNode jn = om.readTree(in);
@@ -61,7 +61,7 @@ public class AddrToCoord {
 			e.printStackTrace();
 		}
 	}*/
-	//ÁÂÇ¥µéÀ» ¸¶Ä¿µé·Î µî·ÏÇÏ±â À§ÇØ jsÇü½ÄÀ¸·Î ¹Ù²Þ
+	//ï¿½ï¿½Ç¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ jsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½
 	public static void coordToJs()
 	{
 		try(BufferedReader in = new BufferedReader(new FileReader(new File("C:\\Users\\KHM\\Desktop\\AddrToCoord.txt")));
@@ -76,10 +76,8 @@ public class AddrToCoord {
 			}
 			out.write("];");
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

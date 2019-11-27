@@ -134,7 +134,6 @@ public class WordChain {
 class Graph {
 	List<String> wordList;
 	public Graph() {
-		// TODO Auto-generated constructor stub
 		this.wordList = new ArrayList<String>();
 	}
 }

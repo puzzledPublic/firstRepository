@@ -16,10 +16,8 @@ public class ReflectionEx3 {
 		try {
 			Foo foo = cls.newInstance();
 		} catch (InstantiationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -67,7 +65,6 @@ public class ReflectionEx3 {
 				System.out.println(co);
 			}*/
 		} catch (SecurityException | IllegalArgumentException | InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
