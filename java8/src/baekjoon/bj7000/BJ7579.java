@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-//¾Û
+//ì•±
 public class BJ7579 {
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -30,22 +30,22 @@ public class BJ7579 {
 			cost[i] = Integer.parseInt(st.nextToken());
 		}
 		
-		long[][] dp = new long[N][N * 100 + 1];	//i¹øÂ° ±îÁö °ñ¶ú°í ÇöÀç ºñÈ°¼º ºñ¿ëÀÌ jÀÏ¶§ ÇØÁ¦µÉ ¼ö ÀÖ´Â ÃÖ´ë ¹ÙÀÌÆ® ¼ö
+		long[][] dp = new long[N][N * 100 + 1];	//ië²ˆì§¸ ê¹Œì§€ ê³¨ëê³  í˜„ì¬ ë¹„í™œì„± ë¹„ìš©ì´ jì¼ë•Œ í•´ì œë  ìˆ˜ ìˆëŠ” ìµœëŒ€ ë°”ì´íŠ¸ ìˆ˜
 		
 		dp[0][cost[0]] = memory[0];
 		
 		for(int i = 1; i < N; i++) {
 			for(int j = 0; j < N * 100 + 1; j++) {
 				if(j - cost[i] >= 0) {
-					dp[i][j] = Math.max(dp[i][j], dp[i - 1][j - cost[i]] + memory[i]);	//ÇöÀç i¸¦ ºñÈ°¼º ÇÏ°Å³ª
+					dp[i][j] = Math.max(dp[i][j], dp[i - 1][j - cost[i]] + memory[i]);	//í˜„ì¬ ië¥¼ ë¹„í™œì„± í•˜ê±°ë‚˜
 				}
-				dp[i][j] = Math.max(dp[i][j], dp[i - 1][j]);	//ºñÈ°¼º ÇÏÁö ¾Ê°Å³ª
+				dp[i][j] = Math.max(dp[i][j], dp[i - 1][j]);	//ë¹„í™œì„± í•˜ì§€ ì•Šê±°ë‚˜
 			}
 		}
 		
 		int result = 0;
 		for(int i = 0; i < N * 100 + 1; i++) {
-			if(dp[N - 1][i] >= M) {	//ÃÖÃÊ·Î Mº¸´Ù Å¬ ¶§ ºñ¿ëÀÌ ÃÖ¼Ò
+			if(dp[N - 1][i] >= M) {	//ìµœì´ˆë¡œ Më³´ë‹¤ í´ ë•Œ ë¹„ìš©ì´ ìµœì†Œ
 				result = i;
 				break;
 			}
