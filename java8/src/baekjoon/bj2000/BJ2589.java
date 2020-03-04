@@ -80,6 +80,7 @@ public class BJ2589 {
 		}
 		Queue<Coord> queue = new LinkedList<>();
 		queue.add(new Coord(x, y, 0));
+		backup[x][y]++;	//시작점도 다시 탐색해서 거리가 늘지 않도록 체크 필요.
 		int max = -1;	//x, y를 시작점으로한 bfs의 최대값
 		while(!queue.isEmpty()) {
 			Coord coord = queue.poll();
