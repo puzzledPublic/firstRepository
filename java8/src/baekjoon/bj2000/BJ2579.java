@@ -9,8 +9,8 @@ public class BJ2579 {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		N = input.nextInt();
-		arr = new int[N];
-		DT = new int[N];
+		arr = new int[N + 3];	//N <= 3의 경우 outOfIndexException을 방지하기 위해 배열 크기 좀 더 늘림
+		DT = new int[N + 3];
 		for(int i = 0; i < N; i++) {
 			arr[i] = input.nextInt();
 		}
