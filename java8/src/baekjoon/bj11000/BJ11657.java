@@ -14,8 +14,9 @@ import java.util.StringTokenizer;
 //타임머신
 public class BJ11657 {
 	static class Node {
-		int vertex, weight;
-		public Node(int vertex, int weight) {
+		int vertex;
+		long weight;
+		public Node(int vertex, long weight) {
 			this.vertex = vertex;
 			this.weight = weight;
 		}
@@ -41,9 +42,9 @@ public class BJ11657 {
 	}
 	
 	static void solve(List<List<Node>> list, int start, int n, Writer w) throws IOException {	//벨만-포드
-		int[] upper = new int[n + 1];
+		long[] upper = new long[n + 1];
 		for(int i = 0; i < n + 1; i++) {
-			upper[i] = 987654321;
+			upper[i] = Long.MAX_VALUE;
 		}
 		upper[start] = 0;	//시작점은 distance가 0으로 초기화
 		boolean updated = false;
@@ -51,9 +52,9 @@ public class BJ11657 {
 			updated = false;
 			for(int here = 1; here < n + 1; here++) {
 				for(Node node : list.get(here)) {
-					int cost = node.weight;
+					long cost = node.weight;
 					int there = node.vertex;
-					if(upper[here] != 987654321 && upper[there] > upper[here] + cost) {	//upper[here] == INF라는것은 시작점(1) ~ here까지의 경로가 아직 없다는 것
+					if(upper[here] != Long.MAX_VALUE && upper[there] > upper[here] + cost) {	//upper[here] == INF라는것은 시작점(1) ~ here까지의 경로가 아직 없다는 것
 						upper[there] = upper[here] + cost;
 						updated = true;
 					}
@@ -67,7 +68,7 @@ public class BJ11657 {
 			w.write("-1\n");
 		}else {	//아니라면 시작점을 제외한 모든 정점들까지 최단 거리 출력
 			for(int i = 2; i < upper.length; i++) {
-				if(upper[i] >= 500000000) {	//도달 불가능하면 -1	, 음수간선만 있다면 (987654321 + 음수)가 최소값이 되어버리므로 하한선을 더 낮게 잡자.
+				if(upper[i] >= 5000000000L) {	//도달 불가능하면 -1	, 음수간선만 있다면 (987654321 + 음수)가 최소값이 되어버리므로 하한선을 더 낮게 잡자.
 					w.write("-1\n");
 				}else {
 					w.write(upper[i] + "\n");
