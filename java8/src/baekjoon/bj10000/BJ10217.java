@@ -56,7 +56,7 @@ public class BJ10217 {
 			
 			PriorityQueue<Edge> pq = new PriorityQueue<>((a, b) -> a.dist - b.dist);
 			pq.add(new Edge(1, 0, 0));
-			while(!pq.isEmpty()) {
+			while(!pq.isEmpty()) {	//다익스트라.
 				
 				Edge curr = pq.poll();
 				
